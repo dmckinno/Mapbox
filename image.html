@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+    .mapboxgl-popup {
+        max-width: 250px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+</style>    
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZG1ja2lubm8iLCJhIjoiY2lnMnVuaGU4MWZmbHVqbHZvM3BmbWt0ciJ9.zR7Bu1hN-5-yEjV5x9DEjg';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/dmckinno/cit90039i003w2wp4h7epfc22',
+    zoom: 16,
+    center: [-105.2311759, 40.0848768]
+});
+
+map.on('load', function () {
+    map.addSource('photo1', {
+    type: 'image',
+    url: 'http://www.ddmckinnon.com/wp-content/uploads/2016/09/DJI_0202.jpg',
+    coordinates: [
+       [-105.2311759, 40.0848768],
+       [-105.2335889, 40.0851527],
+       [-105.2333181, 40.0865392],
+       [-105.2309051, 40.0862633]
+    ]
+});
+    map.addLayer({
+        "id": "photo1",
+        "type": "raster",
+        "source": "photo1",
+    });
+});
+
+</script>
+
+</body>
+</html>
